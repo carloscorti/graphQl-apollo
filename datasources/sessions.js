@@ -11,6 +11,10 @@ class SessionAPI extends DataSource {
   getSessions() {
     return sessions;
   }
+
+  getSessionById(id) {
+    return sessions.find((sess) => sess.id == id);
+  }
 }
 
 module.exports = SessionAPI;
