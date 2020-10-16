@@ -13,7 +13,20 @@ class SessionAPI extends DataSource {
   }
 
   getSessionById(id) {
+    // the same with lodash
+    // const _ = require('lodash')
+    // return _.filter(sessions, {id: parseInt(id)})
     return sessions.find((sess) => sess.id == id);
+  }
+
+  getSessionMultifilter(args) {
+    // the same with lodash
+    // const _ = require('lodash')
+    // return _.filter(sessions, args)
+    const argsKeys = Object.keys(args);
+    return sessions.filter((sess) =>
+      argsKeys.every((key) => args[key] === sess[key])
+    );
   }
 }
 

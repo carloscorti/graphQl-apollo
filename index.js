@@ -5,7 +5,20 @@ const typeDefs = gql`
   type Query {
     sessions: [Session]
     sessionsById(id: ID): Session
+    sessionsMultifilter(
+      id: ID
+      title: String
+      description: String
+      startsAt: String
+      endsAt: String
+      room: String
+      day: String
+      format: String
+      track: String
+      level: String
+    ): [Session]
   }
+
   type Session {
     id: ID!
     title: String!
@@ -34,6 +47,9 @@ const resolvers = {
     },
     sessionsById: (parent, { id }, { dataSources }, info) => {
       return dataSources.sessionAPI.getSessionById(id);
+    },
+    sessionsMultifilter: (parent, args, { dataSources }, info) => {
+      return dataSources.sessionAPI.getSessionMultifilter(args);
     },
   },
 };
