@@ -31,6 +31,7 @@ const schema = gql`
     format: String
     track: String @deprecated(reason: "will be replaced by tag")
     level: String
+    speakers: [Speaker]
   }
 
   type Speaker {
