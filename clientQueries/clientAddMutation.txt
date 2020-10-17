@@ -1,0 +1,10 @@
+mutation {
+  addNewSession(session: {
+    title: "new session"
+    description: "super session"
+  }){
+    title
+    description
+    id
+  }
+}

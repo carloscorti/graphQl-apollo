@@ -41,6 +41,13 @@ class SessionAPI extends DataSource {
     sessions.push(session);
     return session;
   }
+
+  getSessionByIdWithError(id, setError) {
+    if (setError) {
+      throw new Error();
+    }
+    return sessions.find((sess) => sess.id == id);
+  }
 }
 
 module.exports = SessionAPI;

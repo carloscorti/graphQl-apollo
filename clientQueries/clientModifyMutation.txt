@@ -1,0 +1,7 @@
+mutation{
+  toggleFavoriteSession(id:"12"){
+    id
+    title
+    favorite
+  }
+}

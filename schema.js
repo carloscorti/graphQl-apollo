@@ -18,6 +18,15 @@ const schema = gql`
     ): [Session]
     speakers: [Speaker]
     speakersById(id: ID): Speaker
+    sessionsByIdWithError(id: ID): SessionOrError
+  }
+
+  union SessionOrError = Session | Error
+
+  type Error {
+    message: String
+    code: String
+    token: String
   }
 
   type Mutation {

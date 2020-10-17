@@ -21,6 +21,17 @@ const Query = {
   speakersById: (parent, { id }, { dataSources }, info) => {
     return dataSources.speakerAPI.getSpeakerById(id);
   },
+  sessionsByIdWithError: (parent, { id }, { dataSources }, info) => {
+    try {
+      return dataSources.sessionAPI.getSessionByIdWithError(id, true);
+    } catch (err) {
+      return {
+        code: 'UNIONERROR',
+        message: 'Error in sessionByIdWithError via union SessionOrError',
+        token: 'uniquetoken',
+      };
+    }
+  },
 };
 
 module.exports = Query;

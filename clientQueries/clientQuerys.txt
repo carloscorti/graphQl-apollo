@@ -1,0 +1,57 @@
+query {
+  sessionsByIdWithError(id:"84376") {
+    ... on Session {
+      title
+      room
+      track
+      id
+      level
+      day
+      speakers{
+        name
+        id
+      }
+      favorite
+    }
+    ... on Error {
+      message
+      code
+      token
+    }
+  }
+  
+  speakers {
+    name
+    id
+  }
+  
+  sessionsMultifilter(track:"Java"){
+    title
+    id
+    # time
+    endsAt
+    startsAt
+    room
+    track
+    favorite
+    speakers{
+      name
+      id
+    }
+  }
+   
+  sessionsById(id:"84376") {
+    title
+    room
+    track
+    id
+    level
+    day
+    speakers{
+      name
+      id
+    }
+    favorite
+  }
+  
+}
