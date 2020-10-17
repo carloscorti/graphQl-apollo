@@ -20,6 +20,10 @@ const schema = gql`
     speakersById(id: ID): Speaker
   }
 
+  type Mutation {
+    toggleFavoriteSession(id: ID): Session
+  }
+
   type Session {
     id: ID!
     title: String!
@@ -31,6 +35,7 @@ const schema = gql`
     format: String
     track: String @deprecated(reason: "will be replaced by tag")
     level: String
+    favorite: Boolean
     speakers: [Speaker]
   }
 

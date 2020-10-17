@@ -28,6 +28,12 @@ class SessionAPI extends DataSource {
       argsKeys.every((key) => args[key] === sess[key])
     );
   }
+
+  toggleFavoriteSession(id) {
+    const favSess = sessions.find((sess) => sess.id == id);
+    favSess.favorite = !favSess.favorite;
+    return favSess;
+  }
 }
 
 module.exports = SessionAPI;
