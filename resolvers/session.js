@@ -9,9 +9,12 @@ const Session = {
     //   );
     // }
     // return filteredSpeakers;
-    return session.speakers.map(
-      async (speaker) => await dataSources.speakerAPI.getSpeakerById(speaker.id)
-    );
+    return session.speaker
+      ? session.speakers.map(
+          async (speaker) =>
+            await dataSources.speakerAPI.getSpeakerById(speaker.id)
+        )
+      : [];
   },
   // speakers: async (session, args, { dataSources }, info) => {
   //   const speakers = await dataSources.speakerAPI.getSpeakers();

@@ -22,6 +22,20 @@ const schema = gql`
 
   type Mutation {
     toggleFavoriteSession(id: ID): Session
+    addNewSession(session: SessionInput): Session
+  }
+
+  input SessionInput {
+    title: String!
+    description: String
+    startsAt: String
+    endsAt: String
+    room: String
+    day: String
+    format: String
+    track: String
+    level: String
+    favorite: Boolean
   }
 
   type Session {

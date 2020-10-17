@@ -25,7 +25,7 @@ class SessionAPI extends DataSource {
     // return _.filter(sessions, args)
     const argsKeys = Object.keys(args);
     return sessions.filter((sess) =>
-      argsKeys.every((key) => args[key] === sess[key])
+      argsKeys.every((key) => args[key] == sess[key])
     );
   }
 
@@ -33,6 +33,13 @@ class SessionAPI extends DataSource {
     const favSess = sessions.find((sess) => sess.id == id);
     favSess.favorite = !favSess.favorite;
     return favSess;
+  }
+
+  addNewSession(session) {
+    // session.id = Math.ceil(Math.random() * 1000) and session.push(session) simulates persist data into database
+    session.id = Math.ceil(Math.random() * 1000);
+    sessions.push(session);
+    return session;
   }
 }
 
