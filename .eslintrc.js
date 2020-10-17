@@ -12,13 +12,13 @@ module.exports = {
   //   Atomics: 'readonly',
   //   SharedArrayBuffer: 'readonly',
   // },
-  // parserOptions: {
-  //   ecmaVersion: 2020,
-  //   ecmaFeatures: {
-  //     impliedStrict: true,
-  //   },
-  //   sourceType: 'module',
-  // },
+  parserOptions: {
+    ecmaVersion: 2020,
+    ecmaFeatures: {
+      impliedStrict: true,
+    },
+    sourceType: 'module',
+  },
   extends: ['eslint:recommended'],
   ignorePatterns: ['main.js', 'node_modules/'],
   rules: {

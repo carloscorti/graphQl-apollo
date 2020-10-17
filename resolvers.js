@@ -16,6 +16,12 @@ const resolvers = {
     sessionsMultifilter: (parent, args, { dataSources }, info) => {
       return dataSources.sessionAPI.getSessionMultifilter(args);
     },
+    speakers: (parent, args, { dataSources }, info) => {
+      return dataSources.speakerAPI.getSpeakers();
+    },
+    speakersById: (parent, { id }, { dataSources }, info) => {
+      return dataSources.speakerAPI.getSpeakerById(id);
+    },
   },
 };
 

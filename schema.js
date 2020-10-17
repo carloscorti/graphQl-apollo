@@ -16,6 +16,8 @@ const schema = gql`
       track: String
       level: String
     ): [Session]
+    speakers: [Speaker]
+    speakersById(id: ID): Speaker
   }
 
   type Session {
@@ -29,6 +31,13 @@ const schema = gql`
     format: String
     track: String @deprecated(reason: "will be replaced by tag")
     level: String
+  }
+
+  type Speaker {
+    id: ID!
+    bio: String
+    name: String
+    sessions: [Session]
   }
 `;
 
